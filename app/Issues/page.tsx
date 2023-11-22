@@ -7,7 +7,6 @@ import NewIssueButton from "./NewIssueButton";
 
 const IssuesPage = async () => {
   const issue = await prisma.issue.findMany();
-  console.log(issue);
   return (
     <div>
       <NewIssueButton />
