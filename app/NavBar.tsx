@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <nav className="flex px-5 space-x-5 h-14 items-center border-b mb-5">
       <Link href="/">
-        <FaBug />
+        <FaBug size={24} />
       </Link>
       <ul className="flex space-x-5">
         {links.map((link) => (
