@@ -1,4 +1,4 @@
-import EditIssueButton from "@/app/api/issues/[id]/EditIssueButton";
+import EditIssueButton from "@/app/issues/[id]/EditIssueButton";
 import prisma from "@/prisma/client";
 import { Grid } from "@radix-ui/themes";
 import { notFound } from "next/navigation";

@@ -8,7 +8,7 @@ const EditIssueButton = ({ issueId }: { issueId: number }) => {
     <Box>
       <Button>
         <PiNotePencil />
-        <Link href={"issues/${issue.id}/edit"}>Edit Issue</Link>
+        <Link href={`/issues/${issueId}/edit`}>Edit</Link>
       </Button>
     </Box>
   );
