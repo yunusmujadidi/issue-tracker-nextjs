@@ -5,12 +5,10 @@ import { PiNotePencil } from "react-icons/pi";
 
 const EditIssueButton = ({ issueId }: { issueId: number }) => {
   return (
-    <Box>
-      <Button>
-        <PiNotePencil />
-        <Link href={`/issues/${issueId}/edit`}>Edit</Link>
-      </Button>
-    </Box>
+    <Button>
+      <PiNotePencil />
+      <Link href={`/issues/${issueId}/edit`}>Edit Issue</Link>
+    </Button>
   );
 };
 
