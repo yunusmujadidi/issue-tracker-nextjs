@@ -30,7 +30,7 @@ const NavBar = () => {
   const currentPath = usePathname();
   return (
     <Container>
-      <nav className="px-5 space-x-5 border-b mb-5 py-3">
+      <nav className=" space-x-5 border-b mb-5 py-3">
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">
@@ -54,7 +54,9 @@ const NavBar = () => {
             </ul>
           </Flex>
           <Box>
-            {status === "authenticated" ? (
+            {status === "loading" ? (
+              <Text>Loading...</Text>
+            ) : status === "authenticated" ? (
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger>
                   <Avatar
@@ -69,13 +71,15 @@ const NavBar = () => {
                   <DropdownMenuLabel>
                     <Text size="2"> {session.user!.email}</Text>
                   </DropdownMenuLabel>
-                  <DropdownMenu.Item>
-                    <Link href="/api/auth/signout">Sign out</Link>
-                  </DropdownMenu.Item>
+                  <Link href="/api/auth/signout">
+                    <DropdownMenu.Item>Sign out</DropdownMenu.Item>
+                  </Link>
                 </DropdownMenu.Content>
               </DropdownMenu.Root>
             ) : (
-              <Link href="/api/auth/signin">Sign in</Link>
+              <Link href="/api/auth/signin">
+                <Text>Sign in</Text>
+              </Link>
             )}
           </Box>
         </Flex>
