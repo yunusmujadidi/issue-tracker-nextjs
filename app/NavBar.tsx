@@ -30,7 +30,7 @@ const NavBar = () => {
   const currentPath = usePathname();
   return (
     <Container>
-      <nav className=" space-x-5 border-b mb-5 py-3">
+      <nav className=" space-x-5 border-b mb-5 py-3 mx-3">
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">
