@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import IssueFormSkeleton from "./loading";
+import { Heading } from "@radix-ui/themes";
 
 const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   ssr: false,
@@ -8,7 +9,12 @@ const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
 });
 
 const NewIssuePage = () => {
-  return <IssueForm />;
+  return (
+    <>
+      <Heading>New Issue</Heading>
+      <IssueForm />;
+    </>
+  );
 };
 
 export default NewIssuePage;
