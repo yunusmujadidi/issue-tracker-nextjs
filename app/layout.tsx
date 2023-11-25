@@ -30,7 +30,7 @@ export default function RootLayout({
           <Theme appearance="light" accentColor="blue" radius="large">
             <NavBar />
             <main>
-              <Container>{children}</Container>
+              <Container className="mx-3">{children}</Container>
             </main>
           </Theme>
         </AuthProvider>
