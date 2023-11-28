@@ -7,7 +7,7 @@ const IssueToolbar = () => {
   return (
     <Flex justify="between">
       <IssueStatusFilter />
-      <Button color="sky">
+      <Button variant="surface">
         <Link href="/issues/new">New Issue</Link>
       </Button>
     </Flex>
