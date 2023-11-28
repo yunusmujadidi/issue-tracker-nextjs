@@ -1,7 +1,13 @@
 import React from "react";
+import Pagination from "./components/Pagination";
 
-const Home = () => {
-  return <div>Hello World</div>;
+interface Props {
+  searchParams: {
+    page: string;
+  };
+}
+const Home = ({ searchParams }: Props) => {
+  return <></>;
 };
 
 export default Home;

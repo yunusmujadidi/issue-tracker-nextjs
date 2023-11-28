@@ -7,9 +7,10 @@ import Link from "../components/Link";
 import { Issue, Status } from "@prisma/client";
 import NextLink from "next/link";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import Pagination from "../components/Pagination";
 
 interface Props {
-  searchParams: { status: Status; orderBy: keyof Issue };
+  searchParams: { status: Status; orderBy: keyof Issue; page: string };
 }
 
 const column: { label: string; value: keyof Issue; className?: string }[] = [
@@ -40,11 +41,21 @@ const IssuesPage = async ({ searchParams }: Props) => {
     ? { [searchParams.orderBy]: "asc" }
     : undefined;
 
+  const page = parseInt(searchParams.page) || 1;
+  const pageSize = 10;
   const issue = await prisma.issue.findMany({
+    skip: (page - 1) * pageSize,
+    take: pageSize,
     where: {
       status,
     },
     orderBy,
+  });
+
+  const issueCount = await prisma.issue.count({
+    where: {
+      status,
+    },
   });
 
   return (
@@ -95,6 +106,7 @@ const IssuesPage = async ({ searchParams }: Props) => {
           ))}
         </Table.Body>
       </Table.Root>
+      <Pagination itemCount={issueCount} pageSize={10} currentPage={page} />
     </div>
   );
 };
