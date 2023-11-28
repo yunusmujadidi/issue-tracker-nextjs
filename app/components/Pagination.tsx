@@ -2,7 +2,12 @@
 import { Button, Flex, Text } from "@radix-ui/themes";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
-import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
+import {
+  FaAngleDoubleLeft,
+  FaAngleDoubleRight,
+  FaAngleLeft,
+  FaAngleRight,
+} from "react-icons/fa";
 interface Props {
   itemCount: number;
   pageSize: number;
@@ -22,7 +27,7 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
 
   if (pageCount <= 1) return null;
   return (
-    <Flex gap="2" align="center" mt="4">
+    <Flex gap="2" align="center">
       <Text size="2">
         Page {currentPage} of {pageCount}
       </Text>
@@ -39,14 +44,14 @@ const Pagination = ({ itemCount, pageSize, currentPage }: Props) => {
         disabled={currentPage === 1}
         onClick={() => changePage(currentPage - 1)}
       >
-        Prev
+        <FaAngleLeft />
       </Button>
       <Button
         variant="surface"
         disabled={currentPage === pageCount}
         onClick={() => changePage(currentPage + 1)}
       >
-        Next
+        <FaAngleRight />
       </Button>
 
       <Button
