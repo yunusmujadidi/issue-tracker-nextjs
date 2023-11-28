@@ -3,7 +3,7 @@ import Link from "@/app/components/Link";
 import React from "react";
 import IssueStatusFilter from "./IssueStatusFilter";
 
-const NewIssueButton = () => {
+const IssueToolbar = () => {
   return (
     <Flex mb="5" justify="between">
       <IssueStatusFilter />
@@ -14,4 +14,4 @@ const NewIssueButton = () => {
   );
 };
 
-export default NewIssueButton;
+export default IssueToolbar;

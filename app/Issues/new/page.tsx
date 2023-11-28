@@ -12,7 +12,7 @@ const NewIssuePage = () => {
   return (
     <>
       <Heading>New Issue</Heading>
-      <IssueForm />;
+      <IssueForm />
     </>
   );
 };
