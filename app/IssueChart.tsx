@@ -1,7 +1,7 @@
 "use client";
 import { Card } from "@radix-ui/themes";
 import React from "react";
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from "recharts";
+import { BarChart } from "@mui/x-charts/BarChart";
 
 interface Props {
   open: number;
@@ -25,15 +25,27 @@ const IssueChart = ({ open, inProgress, closed }: Props) => {
   ];
 
   return (
-    <Card>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data}>
-          <XAxis dataKey="label" />
-          <YAxis />
-          <Bar dataKey="value" fill="#2073CE" barSize={60} />
-        </BarChart>
-      </ResponsiveContainer>
-    </Card>
+    <>
+      <Card>
+        <BarChart
+          xAxis={[
+            {
+              id: "barCategories",
+              data: ["Open", "In Progress", "Closed"],
+              scaleType: "band",
+            },
+          ]}
+          series={[
+            {
+              data: [open, inProgress, closed],
+            },
+          ]}
+          width={500}
+          height={300}
+          colors={["#0C75CF"]}
+        />
+      </Card>
+    </>
   );
 };
 
