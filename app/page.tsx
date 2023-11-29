@@ -1,29 +1,17 @@
 import React from "react";
-import Pagination from "./components/Pagination";
 import LatestIssue from "./LatestIssue";
 import IssueSummary from "./IssueSummary";
 import prisma from "@/prisma/client";
 import IssueChart from "./IssueChart";
 import { Flex, Grid } from "@radix-ui/themes";
+import { Metadata } from "next";
 
 const Home = async () => {
-  const open = await prisma.issue.count({
-    where: {
-      status: "OPEN",
-    },
-  });
-
-  const closed = await prisma.issue.count({
-    where: {
-      status: "CLOSED",
-    },
-  });
-
-  const inProgress = await prisma.issue.count({
-    where: {
-      status: "IN_PROGRESS",
-    },
-  });
+  const [open, closed, inProgress] = await Promise.all([
+    prisma.issue.count({ where: { status: "OPEN" } }),
+    prisma.issue.count({ where: { status: "CLOSED" } }),
+    prisma.issue.count({ where: { status: "IN_PROGRESS" } }),
+  ]);
 
   return (
     <>
@@ -37,5 +25,8 @@ const Home = async () => {
     </>
   );
 };
-
+export const metadata: Metadata = {
+  title: "Issue Tracker - Dashboard",
+  description: "view a summary of issues",
+};
 export default Home;

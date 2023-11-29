@@ -9,6 +9,7 @@ import NextLink from "next/link";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import Pagination from "../components/Pagination";
 import IssueTable, { IssueQuery, columnName } from "./IssueTable";
+import { Metadata } from "next";
 
 interface Props {
   searchParams: IssueQuery;
@@ -51,4 +52,8 @@ const IssuesPage = async ({ searchParams }: Props) => {
 
 // export const dynamic = "force-dynamic";
 export const revalidate = 60;
+export const metadata: Metadata = {
+  title: "Issue Tracker - Issue List",
+  description: "View all of issues",
+};
 export default IssuesPage;
