@@ -25,27 +25,29 @@ const IssueChart = ({ open, inProgress, closed }: Props) => {
   ];
 
   return (
-    <>
-      <Card>
-        <BarChart
-          xAxis={[
-            {
-              id: "barCategories",
-              data: ["Open", "In Progress", "Closed"],
-              scaleType: "band",
-            },
-          ]}
-          series={[
-            {
-              data: [open, inProgress, closed],
-            },
-          ]}
-          width={500}
-          height={300}
-          colors={["#0C75CF"]}
-        />
-      </Card>
-    </>
+    <Card>
+      <>
+        <Card>
+          <BarChart
+            xAxis={[
+              {
+                id: "barCategories",
+                data: ["Open", "In Progress", "Closed"],
+                scaleType: "band",
+              },
+            ]}
+            series={[
+              {
+                data: [open, inProgress, closed],
+              },
+            ]}
+            width={500}
+            height={300}
+            colors={["#0C75CF"]}
+          />
+        </Card>
+      </>
+    </Card>
   );
 };
 

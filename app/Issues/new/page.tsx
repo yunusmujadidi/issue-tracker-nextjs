@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import IssueFormSkeleton from "./loading";
 import { Heading } from "@radix-ui/themes";
 
-const IssueForm = dynamic(async () => import("@/app/components/IssueForm"), {
+const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   ssr: false,
   loading: () => <IssueFormSkeleton />,
 });

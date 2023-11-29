@@ -41,5 +41,3 @@ next-env.d.ts
 .idea/inspectionProfiles/Project_Default.xml
 
 .vscode/*
-# Sentry Config File
-.sentryclirc
